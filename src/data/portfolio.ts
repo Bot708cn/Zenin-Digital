@@ -1,4 +1,5 @@
 export type ProjectCategory = 'client' | 'demo';
+export type ProjectBadgeType = 'Client' | 'Interne' | 'Démonstration' | 'Maquette';
 
 export interface ProjectTestimonial {
   /** Citation exacte validée et autorisée par le client/propriétaire. */
@@ -19,6 +20,7 @@ export interface PortfolioProject {
   displayUrl: string;
   category: ProjectCategory;
   categoryLabel: 'Réalisations clients' | 'Projets & démonstrations';
+  badgeType: ProjectBadgeType;
   natureLabel: string;
   siteType: string;
   shortDescription: string;
@@ -46,6 +48,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'mlmenuiserie.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Démonstration',
     natureLabel: 'Démonstration secteur habitat',
     siteType: 'Site Vitrine Menuiserie',
     shortDescription:
@@ -57,7 +60,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Parcours orienté vers la prise de contact et la demande de devis',
       'Interface responsive adaptée à la consultation sur mobile et ordinateur',
     ],
-    accentColor: '#00CFFF',
+    accentColor: '#00D4FF',
   },
   {
     id: 'ets-dubois',
@@ -67,6 +70,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'sitedubois.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Démonstration',
     natureLabel: 'Démonstration artisanat local',
     siteType: 'Site Vitrine Chauffage & Sanitaire',
     shortDescription:
@@ -78,7 +82,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Accès direct aux coordonnées et appels à l’action visibles dès le haut de page',
       'Consultation fluide sur smartphone en situation d’urgence ou de recherche locale',
     ],
-    accentColor: '#006BFF',
+    accentColor: '#0066FF',
   },
   {
     id: 'the-wild-knead',
@@ -88,6 +92,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'marcsitemaquette-iota.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Maquette',
     natureLabel: 'Maquette vitrine',
     siteType: 'Vitrine Boulangerie & Pâtisserie',
     shortDescription:
@@ -109,6 +114,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'zenin-market.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Interne',
     natureLabel: 'Projet interne · E-commerce',
     siteType: 'Boutique en ligne Streetwear',
     shortDescription:
@@ -120,28 +126,29 @@ export const portfolioProjects: PortfolioProject[] = [
       'Interface sombre et contrastée valorisant les visuels produits',
       'Navigation pensée en priorité pour les acheteurs sur smartphone',
     ],
-    accentColor: '#00CFFF',
+    accentColor: '#00D4FF',
   },
   {
     id: 'execlingo',
     slug: 'execlingo',
-    name: 'ExecLingo',
+    name: 'Anglais Terminale',
     url: 'https://anglais-terminale.vercel.app/',
     displayUrl: 'anglais-terminale.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Interne',
     natureLabel: 'Projet interne · Éducation',
-    siteType: 'Plateforme d’apprentissage',
+    siteType: 'Site Éducatif',
     shortDescription:
-      'Plateforme interactive d’apprentissage de l’anglais basée sur le programme de Terminale et adaptée au contexte professionnel.',
+      'Plateforme interactive d’apprentissage de l’anglais (ExecLingo) basée sur le programme de Terminale et adaptée au contexte professionnel.',
     fullDescription:
-      'Application web éducative structurant des parcours d’apprentissage de l’anglais professionnel et scolaire à travers des modules interactifs accessibles en ligne.',
+      'Application web éducative (ExecLingo) structurant des parcours d’apprentissage de l’anglais professionnel et scolaire à travers des modules interactifs accessibles en ligne.',
     architecturePoints: [
       'Organisation par modules progressifs et exercices interactifs',
       'Interface claire favorisant la régularité et la lisibilité sur tous écrans',
       'Déploiement web rapide accessible sans installation',
     ],
-    accentColor: '#006BFF',
+    accentColor: '#008BFF',
   },
   {
     id: 'zenin-langues',
@@ -151,8 +158,9 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'zeninlangues.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Interne',
     natureLabel: 'Projet interne · Éducation',
-    siteType: 'Application Web Éducative',
+    siteType: 'Projet Éducatif',
     shortDescription:
       'Application interactive d’entraînement à la conjugaison des verbes en français et en anglais avec exercices, flashcards et dictionnaire.',
     fullDescription:
@@ -172,6 +180,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'zenin-chatt-nu.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Interne',
     natureLabel: 'Projet interne · Application Web',
     siteType: 'Messagerie & Espace d’étude',
     shortDescription:
@@ -183,7 +192,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Disposition épurée optimisée pour la lecture des échanges',
       'Expérience responsive sur téléphone et ordinateur',
     ],
-    accentColor: '#00CFFF',
+    accentColor: '#00D4FF',
   },
   {
     id: 'broly-store',
@@ -193,6 +202,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'broly-store-seven.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Démonstration',
     natureLabel: 'Démonstration boutique digitale',
     siteType: 'Boutique Produits Numériques',
     shortDescription:
@@ -201,10 +211,10 @@ export const portfolioProjects: PortfolioProject[] = [
       'Interface de boutique digitale structurée pour afficher clairement les offres disponibles et orienter l’utilisateur vers la commande en quelques clics.',
     architecturePoints: [
       'Grille d’offres lisible facilitant le choix rapide sur mobile',
-      'Design sombre contrasté adapté à l’univers gaming',
+      'Design sombre contrasté valorisant les produits numériques',
       'Accès direct aux actions principales sans surcharge visuelle',
     ],
-    accentColor: '#006BFF',
+    accentColor: '#0066FF',
   },
   {
     id: 'bacc-2027-timer',
@@ -214,6 +224,7 @@ export const portfolioProjects: PortfolioProject[] = [
     displayUrl: 'bac-timer-peach.vercel.app',
     category: 'demo',
     categoryLabel: 'Projets & démonstrations',
+    badgeType: 'Interne',
     natureLabel: 'Projet interne · Outil temps réel',
     siteType: 'Application Web Temps Réel',
     shortDescription:
