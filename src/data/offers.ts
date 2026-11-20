@@ -1,88 +1,172 @@
 export interface ServiceOffer {
-  id: string;
-  category: string;
+  id: 'essentiel' | 'croissance' | 'scale' | string;
   title: string;
+  tagline: string;
+  description: string;
+  priceAmount: string;
+  priceUnit: string;
   priceLabel: string;
-  billingNote: string;
-  summary: string;
-  highlights: string[];
+  monthlyLabel: string;
+  icon: 'rocket' | 'chart' | 'gem';
+  features: string[];
+  ctaLabel: string;
   highlighted?: boolean;
+  recommendedBadge?: string;
   presetProjectType: string;
   presetBudget: string;
 }
 
-/**
- * Offres et tarifs modifiables.
- * Conservez uniquement des prestations confirmées et vérifiables.
- */
+export interface ComplementaryService {
+  id: 'recurrents' | 'options';
+  icon: 'wrench' | 'puzzle';
+  title: string;
+  description: string;
+  linkLabel: string;
+  /** Renseigner une URL réelle (ex. "/services-recurrents" ou externe) si une page dédiée est publiée. */
+  destinationUrl?: string;
+  items: Array<{
+    name: string;
+    detail: string;
+    presetProjectType: string;
+    presetBudget: string;
+  }>;
+}
+
 export const serviceOffers: ServiceOffer[] = [
   {
-    id: 'site-vitrine',
-    category: 'Création sur mesure',
-    title: 'Site Vitrine Ultra-Rapide',
-    priceLabel: 'À partir de 1 490 €',
-    billingNote: 'Paiement unique · Code & domaine à votre nom',
-    summary:
-      'Idéal pour les indépendants, cabinets et PME souhaitant une présence en ligne claire, rapide et orientée prise de contact.',
-    highlights: [
-      'Architecture moderne statique / hybride à faible latence',
-      'Structure sémantique HTML5 et balises SEO essentielles',
-      'Design responsive adapté mobile, tablette et desktop',
-      'Remise complète du code source et du nom de domaine',
+    id: 'essentiel',
+    title: 'Essentiel',
+    tagline: 'Pour démarrer',
+    description: 'Créez votre présence sur Internet et présentez vos services.',
+    priceAmount: '1 490 €',
+    priceUnit: 'HT',
+    priceLabel: '1 490 € HT',
+    monthlyLabel: '+ 99 € / mois',
+    icon: 'rocket',
+    features: [
+      '5 Pages (Accueil, Services, À propos...)',
+      'Formulaire → Email / Telegram',
+      'CMS simple et intuitif',
+      'SEO optimisé & RGPD',
+      'Déploiement rapide (5j)',
     ],
-    highlighted: true,
+    ctaLabel: 'Demander un devis Vitrine',
+    highlighted: false,
     presetProjectType: 'Création de site vitrine',
     presetBudget: '1 490 € – 2 500 €',
   },
   {
-    id: 'site-pro',
-    category: 'Croissance & Conversion',
-    title: 'Site Web Professionnel',
-    priceLabel: 'Sur devis (dès 1 490 €)',
-    billingNote: 'Tarif ajusté selon le nombre de pages et besoins',
-    summary:
-      'Pour les entreprises qui veulent structurer plusieurs services, présenter leurs réalisations et capter des demandes qualifiées.',
-    highlights: [
-      'Pages services dédiées et parcours de conversion structurés',
-      'Section réalisations et module éditorial SEO (blog)',
-      'Formulaires validés et connexion à votre prise de rendez-vous',
-      'Déploiement optimisé sur infrastructure Cloudflare',
+    id: 'croissance',
+    title: 'Croissance',
+    tagline: 'Le choix idéal pour grandir',
+    description: 'Développez votre visibilité et recevez plus de demandes de devis.',
+    priceAmount: '1 980 €',
+    priceUnit: 'HT',
+    priceLabel: '1 980 € HT',
+    monthlyLabel: '+ 148 € / mois',
+    icon: 'chart',
+    features: [
+      "Tout l'Essentiel +",
+      '10-20 Pages « Service × Ville »',
+      '4 Articles Blog / Mois (IA + Relu)',
+      'Google Business Profile Optimisé',
+      'Reporting Mensuel + Visio 15 min',
     ],
+    ctaLabel: 'Demander un devis Pro',
+    highlighted: true,
+    recommendedBadge: 'Recommandée',
     presetProjectType: 'Site web professionnel',
-    presetBudget: '2 500 € – 5 000 €',
-  },
-  {
-    id: 'optimisation-perf',
-    category: 'Performance & SEO',
-    title: 'Optimisation de Performance',
-    priceLabel: 'Sur audit préalable',
-    billingNote: 'Diagnostic technique gratuit avant intervention',
-    summary:
-      'Analyse technique de votre site existant afin d’améliorer les temps de chargement, la lisibilité et la structure SEO.',
-    highlights: [
-      'Audit Core Web Vitals, poids des ressources et rendu',
-      'Optimisation des images, polices et chargement critique',
-      'Correction de la hiérarchie H1/H2/H3 et métadonnées',
-      'Rapport clair des actions réalisées et recommandations',
-    ],
-    presetProjectType: 'Optimisation de performance & SEO',
     presetBudget: '1 490 € – 2 500 €',
   },
   {
-    id: 'maintenance-mensuelle',
-    category: 'Accompagnement continu',
-    title: 'Maintenance & Suivi Tout Inclus',
-    priceLabel: '99 €/mois',
-    billingNote: 'Formule récurrente tout inclus · Sans blocage de propriété',
-    summary:
-      'Déléguez la gestion technique, l’hébergement et les mises à jour courantes tout en gardant la maîtrise de vos actifs.',
-    highlights: [
-      'Hébergement edge, certificats SSL et supervision technique',
-      'Mises à jour de sécurité et sauvegardes régulières',
-      'Ajustements de contenus et évolutions mineures selon forfait',
-      'Accompagnement réactif pour vos besoins du quotidien',
+    id: 'scale',
+    title: 'Scale',
+    tagline: 'La totale, sans limites',
+    description: 'Automatisez votre activité et dominez votre marché.',
+    priceAmount: '2 980 €',
+    priceUnit: 'HT',
+    priceLabel: '2 980 € HT',
+    monthlyLabel: '+ 298 € / mois',
+    icon: 'gem',
+    features: [
+      'Tout le Croissance +',
+      'Automatisation Leads (n8n/Make)',
+      'Prise RDV Auto & Relances IA',
+      '1h Dev Sur-Mesure / Mois',
+      'Revue Stratégique Trimestrielle',
     ],
-    presetProjectType: 'Maintenance & accompagnement (99 €/mois)',
-    presetBudget: 'Abonnement 99 €/mois',
+    ctaLabel: 'Demander un devis Scale',
+    highlighted: false,
+    presetProjectType: 'Refonte complète',
+    presetBudget: '2 500 € – 5 000 €',
+  },
+];
+
+export const guaranteeInfo = {
+  titlePrefix: 'Satisfait ou une',
+  titleHighlight: 'retouche gratuite',
+  description:
+    'Votre satisfaction est notre priorité. Si quelque chose ne vous convient pas, nous le corrigeons gratuitement.',
+  rightBadges: [
+    { id: 'performance', icon: 'zap' as const, label: 'Performance', emphasis: '100/100' },
+    { id: 'ownership', icon: 'lock' as const, label: 'Propriété totale', emphasis: '' },
+  ],
+};
+
+export const complementaryServices: ComplementaryService[] = [
+  {
+    id: 'recurrents',
+    icon: 'wrench',
+    title: 'Nos services récurrents',
+    description: 'Maintenance & Suivi Tout Inclus ou Optimisation Performance & SEO.',
+    linkLabel: 'En savoir plus',
+    destinationUrl: '#services-recurrents',
+    items: [
+      {
+        name: 'Maintenance & Suivi Tout Inclus',
+        detail:
+          'Hébergement edge, certificats SSL, sauvegardes, mises à jour de sécurité et évolutions mensuelles selon votre forfait.',
+        presetProjectType: 'Maintenance & accompagnement (99 €/mois)',
+        presetBudget: 'Abonnement 99 €/mois',
+      },
+      {
+        name: 'Optimisation Performance & SEO',
+        detail:
+          'Audit technique Core Web Vitals, optimisation des images/polices, balisage Schema.org et amélioration du référencement local.',
+        presetProjectType: 'Optimisation de performance & SEO',
+        presetBudget: '1 490 € – 2 500 €',
+      },
+    ],
+  },
+  {
+    id: 'options',
+    icon: 'puzzle',
+    title: 'Options à la carte',
+    description: 'Rédaction, automatisation, pages supplémentaires...',
+    linkLabel: 'Découvrir les options',
+    destinationUrl: '#options-a-la-carte',
+    items: [
+      {
+        name: 'Pages « Service × Ville » supplémentaires',
+        detail:
+          'Extension ciblée de votre maillage SEO local pour couvrir de nouvelles zones géographiques ou prestations.',
+        presetProjectType: 'Optimisation de performance & SEO',
+        presetBudget: '1 490 € – 2 500 €',
+      },
+      {
+        name: 'Automatisations Leads (n8n / Make / CRM)',
+        detail:
+          'Connexion de vos formulaires, prises de rendez-vous et notifications vers Telegram, Slack, CRM ou e-mail.',
+        presetProjectType: 'Site web professionnel',
+        presetBudget: '2 500 € – 5 000 €',
+      },
+      {
+        name: 'Rédaction SEO & Contenus relus',
+        detail:
+          'Production d’articles de blog structurés, optimisés pour l’intention de recherche et relus avant publication.',
+        presetProjectType: 'Optimisation de performance & SEO',
+        presetBudget: '1 490 € – 2 500 €',
+      },
+    ],
   },
 ];

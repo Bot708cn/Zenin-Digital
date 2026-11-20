@@ -61,9 +61,9 @@ export default function App() {
 
     const sectionIds: Array<{ id: string; nav: NavSectionId }> = [
       { id: 'accueil', nav: 'accueil' },
-      { id: 'tarifs', nav: 'tarifs' },
       { id: 'realisations', nav: 'realisations' },
       { id: 'blog', nav: 'blog' },
+      { id: 'tarifs', nav: 'tarifs' },
       { id: 'contact', nav: 'contact' },
     ];
 
@@ -262,7 +262,6 @@ export default function App() {
               ) : (
                 <main className="flex-1">
                   <HeroSection onNavigate={navigate} />
-                  <OffersSection onSelectOffer={handleSelectOffer} />
                   <PortfolioSection
                     onOpenProject={setSelectedProject}
                     onViewAllPortfolio={() => navigate('/portfolio')}
@@ -274,6 +273,7 @@ export default function App() {
                     onViewAllBlog={() => navigate('/blog')}
                   />
                   <FaqSection />
+                  <OffersSection onSelectOffer={handleSelectOffer} />
                   <ContactSection offerPreset={offerPreset} />
                 </main>
               )}
