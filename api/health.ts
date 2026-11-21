@@ -9,7 +9,11 @@ export async function GET() {
     }),
     {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store, max-age=0',
+        'X-Content-Type-Options': 'nosniff',
+      },
     }
   );
 }
